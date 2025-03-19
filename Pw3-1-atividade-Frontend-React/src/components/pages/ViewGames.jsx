@@ -3,8 +3,8 @@ import style from './ViewGames.module.css'
 
 const ViewGames = ()=>{
     return(
-        <section>
-            <h1 className={style.titulo}>VIEW GAMES</h1>
+        <section className={style.view_games_container}>
+            <h1>VIEW GAMES</h1>
         </section>
     )
 }

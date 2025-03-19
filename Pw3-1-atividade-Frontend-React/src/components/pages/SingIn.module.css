@@ -1,4 +1,4 @@
-.create_game_container{
+.sing_in_container{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -7,6 +7,6 @@
     padding: 4em;
 }
 
-.create_game_container h1 {
+.sing_in_container h1 {
     color: white
 }

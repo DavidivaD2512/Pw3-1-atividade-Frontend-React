@@ -6,9 +6,9 @@
 
 .form_control label{
     padding: .7em;
-    border-radius: 0;
+    border-radius: 5px;
     border: none;
-    color: #ffffff;
+    color: #e4e4e4;
     font-weight: bold;
 }
 

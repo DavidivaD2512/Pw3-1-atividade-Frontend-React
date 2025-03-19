@@ -1,12 +1,12 @@
 import style from "./SelectStatus.module.css";
 
-function SelectStatus({text, name, id}) {
+function SelectStatus({text, name, id, handlerChange}) {
     return(
         <div className={style.form_control}>
 
             <label htmlFor={name}>{text}</label>
 
-            <select name={name} id={id}>
+            <select name={name} id={id} onChange={handlerChange}>
                 <option value="">Selecione um status</option>
                 <option value="">Platinado</option>
                 <option value="">Zerado</option>

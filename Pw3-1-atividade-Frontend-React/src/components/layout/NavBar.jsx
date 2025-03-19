@@ -28,6 +28,10 @@ const NavBar = ()=>{
                         <li className={style.item}>SUA LISTA DE JOGOS</li>
                     </Link>
 
+                    <Link to='/singIn'>
+                        <li className={style.item}>CADASTRE-SE</li>
+                    </Link>
+
                 </ul>
 
             </nav>
