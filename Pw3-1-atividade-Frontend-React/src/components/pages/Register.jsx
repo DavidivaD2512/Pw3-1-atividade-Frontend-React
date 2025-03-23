@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from 'react';
-import Style from './SingIn.module.css'
+import Style from './Register.module.css'
 
 import Input from "../form/Input";
 import SelectSex from "../form/SelectSex";
 import Button from "../form/Button";
 
-const SingIn = ()=>{
+const Register = ()=>{
 
         const [info, setInfo] = useState({})
     
@@ -14,8 +14,8 @@ const SingIn = ()=>{
             setInfo({...info, [event.target.name] : event.target.value})
         }
     
-        function handlerChangeSelect(event) {
-            setInfo({...info, category : event.target.options[event.target.selectedIndex].text}) 
+        function handlerChangeSex(event) {
+            setInfo({...info, sexo : event.target.options[event.target.selectedIndex].text}) 
         }
     
         function submit(event) {
@@ -71,7 +71,7 @@ const SingIn = ()=>{
                     name='slc_sexo'
                     id='slc_sexo'
                     text='Sexo'
-                    handlerChange={handlerChangeSelect}
+                    handlerChange={handlerChangeSex}
                 />
 
                 <Input
@@ -94,4 +94,4 @@ const SingIn = ()=>{
     )
 }
 
-export default SingIn
+export default Register

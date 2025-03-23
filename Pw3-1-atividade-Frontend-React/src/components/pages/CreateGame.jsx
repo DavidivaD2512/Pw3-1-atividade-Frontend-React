@@ -15,8 +15,12 @@ const CreateGame = ()=>{
         setGame({...game, [event.target.name] : event.target.value})
     }
 
-    function handlerChangeSelect(event) {
-        setGame({...game, category : event.target.options[event.target.selectedIndex].text}) 
+    function handlerChangeGenre(event) {
+        setGame({...game, genero : event.target.options[event.target.selectedIndex].text}) 
+    }
+
+    function handlerChangeStatus(event) {
+        setGame({...game, status : event.target.options[event.target.selectedIndex].text}) 
     }
 
     function submit(event) {
@@ -72,14 +76,14 @@ const CreateGame = ()=>{
                     name='slc_genero'
                     id='slc_genero'
                     text='Gênero do jogo'
-                    handlerChange={handlerChangeSelect}
+                    handlerChange={handlerChangeGenre}
                 />
 
                 <SelectStatus 
                     name='slc_status'
                     id='slc_status'
                     text='Selecione um status'
-                    handlerChange={handlerChangeSelect}
+                    handlerChange={handlerChangeStatus}
                 />
 
                 <Button
