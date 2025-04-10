@@ -1,6 +1,7 @@
 import React from "react";
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Style from './Register.module.css'
+import api from '../../services/api';
 
 import Input from "../form/Input";
 import SelectSex from "../form/SelectSex";
@@ -18,10 +19,16 @@ const Register = ()=>{
             setInfo({...info, sexo : event.target.options[event.target.selectedIndex].text}) 
         }
     
-        function submit(event) {
-            event.preventDefault();
-            console.log(info)
+        async function submit(event) {
+            await api.post('/User/Register', {
+                nome: info.nome,
+                email: info.email,
+                senha: info.senha,
+                sexo: info.sexo,
+                data_nasc: info.data_nasc,
+            })
         }
+
 
     return(
 
@@ -34,8 +41,8 @@ const Register = ()=>{
                 <Input
                     text='Nome'
                     type='text'
-                    name='txt_nome'
-                    id='txt_nome'
+                    name='nome'
+                    id='nome'
                     placeholder='Nome'
                     handlerChange={handlerChangeInfo}
                 />
@@ -43,8 +50,8 @@ const Register = ()=>{
                 <Input
                     text='Email'
                     type='text'
-                    name='txt_email'
-                    id='txt_email'
+                    name='email'
+                    id='email'
                     placeholder='endereço@email.com'
                     handlerChange={handlerChangeInfo}
 
@@ -53,32 +60,32 @@ const Register = ()=>{
                 <Input
                     text='Senha'
                     type='password'
-                    name='txt_senha'
-                    id='txt_senha'
+                    name='senha'
+                    id='senha'
                     placeholder='Senha@123'
                     handlerChange={handlerChangeInfo}
                 />
 
-                <Input
+{/*                 <Input
                     text='Confirmar Senha'
                     type='password'
-                    name='txt_senha2'
-                    id='txt_senha2'
+                    name='senha2'
+                    id='senha2'
                     handlerChange={handlerChangeInfo}
-                />
+                /> */}
 
                 <SelectSex 
-                    name='slc_sexo'
-                    id='slc_sexo'
-                    text='Sexo'
+                    name='sexo'
+                    id='sexo'
+                    text='sexo'
                     handlerChange={handlerChangeSex}
                 />
 
                 <Input
                     text='Data de nasimento'
                     type='date'
-                    name='txt_data'
-                    id='txt_data'
+                    name='data_nasc'
+                    id='data_nasc'
                     placeholder='xx/xx/xxxx'
                     handlerChange={handlerChangeInfo}
                 />

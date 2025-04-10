@@ -28,7 +28,7 @@ const NavBar = ()=>{
                         <li className={style.item}>SUA LISTA DE JOGOS</li>
                     </Link>
 
-                    <Link to='/Register'>
+                    <Link to='/User/Register'>
                         <li className={style.item}>CADASTRE-SE</li>
                     </Link>
 

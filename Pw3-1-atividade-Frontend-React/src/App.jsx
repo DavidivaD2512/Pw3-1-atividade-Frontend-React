@@ -7,7 +7,7 @@ import Container from './components/layout/Container'
 import Home from './components/pages/Home'
 import CreateGame from './components/pages/CreateGame'
 import ViewGames from './components/pages/ViewGames'
-import SingIn from './components/pages/SingIn'
+import Register from './components/pages/Register'
 
 import NavBar from './components/layout/NavBar'
 
@@ -29,7 +29,7 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/newGame' element={<CreateGame />} />
                 <Route path='/viewGames' element={<ViewGames />} />
-                <Route path='/singIn' element={<SingIn />} />
+                <Route path='/User/register' element={<Register />} />
 
               </Route>
 
