@@ -1,0 +1,10 @@
+.container_game{
+    background-color: #0a182b;
+    width: 95%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    border-radius: 20px;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from 'react';
-import Style from './CreateGame.module.css'
+import Style from './CreateGame.module.css';
+import api from '../../services/api';
 
 import Input from "../form/Input";
 import SelectGenre from "../form/SelectGenre";
@@ -16,16 +17,25 @@ const CreateGame = ()=>{
     }
 
     function handlerChangeGenre(event) {
-        setGame({...game, genero : event.target.options[event.target.selectedIndex].text}) 
+        setGame({...game, genero: Number(event.target.value)});
+
     }
 
     function handlerChangeStatus(event) {
-        setGame({...game, status : event.target.options[event.target.selectedIndex].text}) 
+        setGame({...game, status: Number(event.target.value)});
+
     }
 
-    function submit(event) {
+    async function submit(event) {
         event.preventDefault();
-        console.log(game)
+        await api.post('/games/newGame', {
+            nome: game.nome,
+            desenvolvedora: game.desenvolvedora,
+            publisher: game.publisher,
+            descricao: game.descricao,
+            genero: game.genero,
+            status: game.status
+        });
     }
     
     return(
@@ -39,8 +49,8 @@ const CreateGame = ()=>{
                 <Input
                     text='Nome do jogo'
                     type='text'
-                    name='txt_jogo'
-                    id='txt_jogo'
+                    name='nome'
+                    id='nome'
                     placeholder='Digite o nome do jogo'
                     handlerChange={handlerChangeGame}
                 />
@@ -48,8 +58,8 @@ const CreateGame = ()=>{
                 <Input
                     text='Desenvolvedora'
                     type='text'
-                    name='txt_desenvolvedora'
-                    id='txt_desenvolvedora'
+                    name='desenvolvedora'
+                    id='desenvolvedora'
                     placeholder='Digite o nome da desenvolvedora do jogo'
                     handlerChange={handlerChangeGame}
                 />
@@ -57,8 +67,8 @@ const CreateGame = ()=>{
                 <Input
                     text='Publisher'
                     type='text'
-                    name='txt_publisher'
-                    id='txt_publisher'
+                    name='publisher'
+                    id='publisher'
                     placeholder='Digite o nome da publisher do jogo'
                     handlerChange={handlerChangeGame}
                 />
@@ -66,22 +76,22 @@ const CreateGame = ()=>{
                 <Input
                     text='Descrição do jogo'
                     type='text'
-                    name='txt_descricao'
-                    id='txt_descricao'
+                    name='descricao'
+                    id='descricao'
                     placeholder='Digite a descrição do jogo'
                     handlerChange={handlerChangeGame}
                 />
 
                 <SelectGenre 
-                    name='slc_genero'
-                    id='slc_genero'
+                    name='genero'
+                    id='genero'
                     text='Gênero do jogo'
                     handlerChange={handlerChangeGenre}
                 />
 
                 <SelectStatus 
-                    name='slc_status'
-                    id='slc_status'
+                    name='status'
+                    id='status'
                     text='Selecione um status'
                     handlerChange={handlerChangeStatus}
                 />

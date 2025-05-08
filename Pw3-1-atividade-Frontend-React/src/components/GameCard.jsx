@@ -1,18 +1,17 @@
-import Button from './Button'
+import Button from './form/Button';
 
-import style from './GameCard.module.css'
+import style from './GameCard.module.css';
 
-const GameCard = ({titulo, desenvolvedora, publisher, genero, status})=>{
+const GameCard = ({nome, desenvolvedora, publisher, genero, status})=>{
     return(
         
         <div className={style.gameCard}>
-            <h3 className={style.titulo}>{titulo}</h3>
-            <p className={style.desenvolvedora}>{desenvolvedora}</p>
-            <p className={style.publisher}>{publisher}</p>
-            <p className={style.genero}>{genero}</p>
-            <p className={style.status}>{status}</p>
+            <h3 className={style.nome}>{nome}</h3>
+            <p className={style.genero}>Genero: {genero}</p>
+            <p className={style.status}>Status: {status}</p>
+            <p className={style.desenvolvedora}>Desenvolvido por: {desenvolvedora}</p>
+            <p className={style.publisher}>Publicado por: {publisher}</p>
             
-            <Button label='DETALHE' />
         </div>
         
     )

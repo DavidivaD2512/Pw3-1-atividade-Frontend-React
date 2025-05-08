@@ -24,11 +24,6 @@ export type Genero = $Result.DefaultSelection<Prisma.$GeneroPayload>
  */
 export type Status = $Result.DefaultSelection<Prisma.$StatusPayload>
 /**
- * Model Avaliacao
- * 
- */
-export type Avaliacao = $Result.DefaultSelection<Prisma.$AvaliacaoPayload>
-/**
  * Model Usuario
  * 
  */
@@ -185,16 +180,6 @@ export class PrismaClient<
   get status(): Prisma.StatusDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.avaliacao`: Exposes CRUD operations for the **Avaliacao** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Avaliacaos
-    * const avaliacaos = await prisma.avaliacao.findMany()
-    * ```
-    */
-  get avaliacao(): Prisma.AvaliacaoDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.usuario`: Exposes CRUD operations for the **Usuario** model.
     * Example usage:
     * ```ts
@@ -271,8 +256,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.6.0
-   * Query Engine version: f676762280b54cd07c770017ed3711ddde35f37a
+   * Prisma Client JS version: 6.7.0
+   * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
    */
   export type PrismaVersion = {
     client: string
@@ -655,7 +640,6 @@ export namespace Prisma {
   export const ModelName: {
     Genero: 'Genero',
     Status: 'Status',
-    Avaliacao: 'Avaliacao',
     Usuario: 'Usuario',
     Jogo: 'Jogo'
   };
@@ -676,7 +660,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "genero" | "status" | "avaliacao" | "usuario" | "jogo"
+      modelProps: "genero" | "status" | "usuario" | "jogo"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -809,72 +793,6 @@ export namespace Prisma {
           count: {
             args: Prisma.StatusCountArgs<ExtArgs>
             result: $Utils.Optional<StatusCountAggregateOutputType> | number
-          }
-        }
-      }
-      Avaliacao: {
-        payload: Prisma.$AvaliacaoPayload<ExtArgs>
-        fields: Prisma.AvaliacaoFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.AvaliacaoFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.AvaliacaoFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>
-          }
-          findFirst: {
-            args: Prisma.AvaliacaoFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.AvaliacaoFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>
-          }
-          findMany: {
-            args: Prisma.AvaliacaoFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>[]
-          }
-          create: {
-            args: Prisma.AvaliacaoCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>
-          }
-          createMany: {
-            args: Prisma.AvaliacaoCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.AvaliacaoDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>
-          }
-          update: {
-            args: Prisma.AvaliacaoUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>
-          }
-          deleteMany: {
-            args: Prisma.AvaliacaoDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.AvaliacaoUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.AvaliacaoUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>
-          }
-          aggregate: {
-            args: Prisma.AvaliacaoAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateAvaliacao>
-          }
-          groupBy: {
-            args: Prisma.AvaliacaoGroupByArgs<ExtArgs>
-            result: $Utils.Optional<AvaliacaoGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.AvaliacaoCountArgs<ExtArgs>
-            result: $Utils.Optional<AvaliacaoCountAggregateOutputType> | number
           }
         }
       }
@@ -1096,7 +1014,6 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     genero?: GeneroOmit
     status?: StatusOmit
-    avaliacao?: AvaliacaoOmit
     usuario?: UsuarioOmit
     jogo?: JogoOmit
   }
@@ -1246,37 +1163,6 @@ export namespace Prisma {
    * StatusCountOutputType without action
    */
   export type StatusCountOutputTypeCountJogoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: JogoWhereInput
-  }
-
-
-  /**
-   * Count Type AvaliacaoCountOutputType
-   */
-
-  export type AvaliacaoCountOutputType = {
-    jogo: number
-  }
-
-  export type AvaliacaoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    jogo?: boolean | AvaliacaoCountOutputTypeCountJogoArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * AvaliacaoCountOutputType without action
-   */
-  export type AvaliacaoCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AvaliacaoCountOutputType
-     */
-    select?: AvaliacaoCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * AvaliacaoCountOutputType without action
-   */
-  export type AvaliacaoCountOutputTypeCountJogoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: JogoWhereInput
   }
 
@@ -3198,962 +3084,6 @@ export namespace Prisma {
 
 
   /**
-   * Model Avaliacao
-   */
-
-  export type AggregateAvaliacao = {
-    _count: AvaliacaoCountAggregateOutputType | null
-    _avg: AvaliacaoAvgAggregateOutputType | null
-    _sum: AvaliacaoSumAggregateOutputType | null
-    _min: AvaliacaoMinAggregateOutputType | null
-    _max: AvaliacaoMaxAggregateOutputType | null
-  }
-
-  export type AvaliacaoAvgAggregateOutputType = {
-    id_avaliacao: number | null
-  }
-
-  export type AvaliacaoSumAggregateOutputType = {
-    id_avaliacao: number | null
-  }
-
-  export type AvaliacaoMinAggregateOutputType = {
-    id_avaliacao: number | null
-    descricao: string | null
-  }
-
-  export type AvaliacaoMaxAggregateOutputType = {
-    id_avaliacao: number | null
-    descricao: string | null
-  }
-
-  export type AvaliacaoCountAggregateOutputType = {
-    id_avaliacao: number
-    descricao: number
-    _all: number
-  }
-
-
-  export type AvaliacaoAvgAggregateInputType = {
-    id_avaliacao?: true
-  }
-
-  export type AvaliacaoSumAggregateInputType = {
-    id_avaliacao?: true
-  }
-
-  export type AvaliacaoMinAggregateInputType = {
-    id_avaliacao?: true
-    descricao?: true
-  }
-
-  export type AvaliacaoMaxAggregateInputType = {
-    id_avaliacao?: true
-    descricao?: true
-  }
-
-  export type AvaliacaoCountAggregateInputType = {
-    id_avaliacao?: true
-    descricao?: true
-    _all?: true
-  }
-
-  export type AvaliacaoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Avaliacao to aggregate.
-     */
-    where?: AvaliacaoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Avaliacaos to fetch.
-     */
-    orderBy?: AvaliacaoOrderByWithRelationInput | AvaliacaoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: AvaliacaoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Avaliacaos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Avaliacaos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Avaliacaos
-    **/
-    _count?: true | AvaliacaoCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: AvaliacaoAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: AvaliacaoSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: AvaliacaoMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: AvaliacaoMaxAggregateInputType
-  }
-
-  export type GetAvaliacaoAggregateType<T extends AvaliacaoAggregateArgs> = {
-        [P in keyof T & keyof AggregateAvaliacao]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateAvaliacao[P]>
-      : GetScalarType<T[P], AggregateAvaliacao[P]>
-  }
-
-
-
-
-  export type AvaliacaoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: AvaliacaoWhereInput
-    orderBy?: AvaliacaoOrderByWithAggregationInput | AvaliacaoOrderByWithAggregationInput[]
-    by: AvaliacaoScalarFieldEnum[] | AvaliacaoScalarFieldEnum
-    having?: AvaliacaoScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: AvaliacaoCountAggregateInputType | true
-    _avg?: AvaliacaoAvgAggregateInputType
-    _sum?: AvaliacaoSumAggregateInputType
-    _min?: AvaliacaoMinAggregateInputType
-    _max?: AvaliacaoMaxAggregateInputType
-  }
-
-  export type AvaliacaoGroupByOutputType = {
-    id_avaliacao: number
-    descricao: string
-    _count: AvaliacaoCountAggregateOutputType | null
-    _avg: AvaliacaoAvgAggregateOutputType | null
-    _sum: AvaliacaoSumAggregateOutputType | null
-    _min: AvaliacaoMinAggregateOutputType | null
-    _max: AvaliacaoMaxAggregateOutputType | null
-  }
-
-  type GetAvaliacaoGroupByPayload<T extends AvaliacaoGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<AvaliacaoGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof AvaliacaoGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], AvaliacaoGroupByOutputType[P]>
-            : GetScalarType<T[P], AvaliacaoGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type AvaliacaoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id_avaliacao?: boolean
-    descricao?: boolean
-    jogo?: boolean | Avaliacao$jogoArgs<ExtArgs>
-    _count?: boolean | AvaliacaoCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["avaliacao"]>
-
-
-
-  export type AvaliacaoSelectScalar = {
-    id_avaliacao?: boolean
-    descricao?: boolean
-  }
-
-  export type AvaliacaoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_avaliacao" | "descricao", ExtArgs["result"]["avaliacao"]>
-  export type AvaliacaoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    jogo?: boolean | Avaliacao$jogoArgs<ExtArgs>
-    _count?: boolean | AvaliacaoCountOutputTypeDefaultArgs<ExtArgs>
-  }
-
-  export type $AvaliacaoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Avaliacao"
-    objects: {
-      jogo: Prisma.$JogoPayload<ExtArgs>[]
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id_avaliacao: number
-      descricao: string
-    }, ExtArgs["result"]["avaliacao"]>
-    composites: {}
-  }
-
-  type AvaliacaoGetPayload<S extends boolean | null | undefined | AvaliacaoDefaultArgs> = $Result.GetResult<Prisma.$AvaliacaoPayload, S>
-
-  type AvaliacaoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<AvaliacaoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: AvaliacaoCountAggregateInputType | true
-    }
-
-  export interface AvaliacaoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Avaliacao'], meta: { name: 'Avaliacao' } }
-    /**
-     * Find zero or one Avaliacao that matches the filter.
-     * @param {AvaliacaoFindUniqueArgs} args - Arguments to find a Avaliacao
-     * @example
-     * // Get one Avaliacao
-     * const avaliacao = await prisma.avaliacao.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends AvaliacaoFindUniqueArgs>(args: SelectSubset<T, AvaliacaoFindUniqueArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Avaliacao that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {AvaliacaoFindUniqueOrThrowArgs} args - Arguments to find a Avaliacao
-     * @example
-     * // Get one Avaliacao
-     * const avaliacao = await prisma.avaliacao.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends AvaliacaoFindUniqueOrThrowArgs>(args: SelectSubset<T, AvaliacaoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Avaliacao that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AvaliacaoFindFirstArgs} args - Arguments to find a Avaliacao
-     * @example
-     * // Get one Avaliacao
-     * const avaliacao = await prisma.avaliacao.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends AvaliacaoFindFirstArgs>(args?: SelectSubset<T, AvaliacaoFindFirstArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Avaliacao that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AvaliacaoFindFirstOrThrowArgs} args - Arguments to find a Avaliacao
-     * @example
-     * // Get one Avaliacao
-     * const avaliacao = await prisma.avaliacao.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends AvaliacaoFindFirstOrThrowArgs>(args?: SelectSubset<T, AvaliacaoFindFirstOrThrowArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Avaliacaos that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AvaliacaoFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Avaliacaos
-     * const avaliacaos = await prisma.avaliacao.findMany()
-     * 
-     * // Get first 10 Avaliacaos
-     * const avaliacaos = await prisma.avaliacao.findMany({ take: 10 })
-     * 
-     * // Only select the `id_avaliacao`
-     * const avaliacaoWithId_avaliacaoOnly = await prisma.avaliacao.findMany({ select: { id_avaliacao: true } })
-     * 
-     */
-    findMany<T extends AvaliacaoFindManyArgs>(args?: SelectSubset<T, AvaliacaoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Avaliacao.
-     * @param {AvaliacaoCreateArgs} args - Arguments to create a Avaliacao.
-     * @example
-     * // Create one Avaliacao
-     * const Avaliacao = await prisma.avaliacao.create({
-     *   data: {
-     *     // ... data to create a Avaliacao
-     *   }
-     * })
-     * 
-     */
-    create<T extends AvaliacaoCreateArgs>(args: SelectSubset<T, AvaliacaoCreateArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Avaliacaos.
-     * @param {AvaliacaoCreateManyArgs} args - Arguments to create many Avaliacaos.
-     * @example
-     * // Create many Avaliacaos
-     * const avaliacao = await prisma.avaliacao.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends AvaliacaoCreateManyArgs>(args?: SelectSubset<T, AvaliacaoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Avaliacao.
-     * @param {AvaliacaoDeleteArgs} args - Arguments to delete one Avaliacao.
-     * @example
-     * // Delete one Avaliacao
-     * const Avaliacao = await prisma.avaliacao.delete({
-     *   where: {
-     *     // ... filter to delete one Avaliacao
-     *   }
-     * })
-     * 
-     */
-    delete<T extends AvaliacaoDeleteArgs>(args: SelectSubset<T, AvaliacaoDeleteArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Avaliacao.
-     * @param {AvaliacaoUpdateArgs} args - Arguments to update one Avaliacao.
-     * @example
-     * // Update one Avaliacao
-     * const avaliacao = await prisma.avaliacao.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends AvaliacaoUpdateArgs>(args: SelectSubset<T, AvaliacaoUpdateArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Avaliacaos.
-     * @param {AvaliacaoDeleteManyArgs} args - Arguments to filter Avaliacaos to delete.
-     * @example
-     * // Delete a few Avaliacaos
-     * const { count } = await prisma.avaliacao.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends AvaliacaoDeleteManyArgs>(args?: SelectSubset<T, AvaliacaoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Avaliacaos.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AvaliacaoUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Avaliacaos
-     * const avaliacao = await prisma.avaliacao.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends AvaliacaoUpdateManyArgs>(args: SelectSubset<T, AvaliacaoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Avaliacao.
-     * @param {AvaliacaoUpsertArgs} args - Arguments to update or create a Avaliacao.
-     * @example
-     * // Update or create a Avaliacao
-     * const avaliacao = await prisma.avaliacao.upsert({
-     *   create: {
-     *     // ... data to create a Avaliacao
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Avaliacao we want to update
-     *   }
-     * })
-     */
-    upsert<T extends AvaliacaoUpsertArgs>(args: SelectSubset<T, AvaliacaoUpsertArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Avaliacaos.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AvaliacaoCountArgs} args - Arguments to filter Avaliacaos to count.
-     * @example
-     * // Count the number of Avaliacaos
-     * const count = await prisma.avaliacao.count({
-     *   where: {
-     *     // ... the filter for the Avaliacaos we want to count
-     *   }
-     * })
-    **/
-    count<T extends AvaliacaoCountArgs>(
-      args?: Subset<T, AvaliacaoCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], AvaliacaoCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Avaliacao.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AvaliacaoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends AvaliacaoAggregateArgs>(args: Subset<T, AvaliacaoAggregateArgs>): Prisma.PrismaPromise<GetAvaliacaoAggregateType<T>>
-
-    /**
-     * Group by Avaliacao.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AvaliacaoGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends AvaliacaoGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: AvaliacaoGroupByArgs['orderBy'] }
-        : { orderBy?: AvaliacaoGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, AvaliacaoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAvaliacaoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Avaliacao model
-   */
-  readonly fields: AvaliacaoFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Avaliacao.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__AvaliacaoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    jogo<T extends Avaliacao$jogoArgs<ExtArgs> = {}>(args?: Subset<T, Avaliacao$jogoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JogoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Avaliacao model
-   */
-  interface AvaliacaoFieldRefs {
-    readonly id_avaliacao: FieldRef<"Avaliacao", 'Int'>
-    readonly descricao: FieldRef<"Avaliacao", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Avaliacao findUnique
-   */
-  export type AvaliacaoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Avaliacao
-     */
-    select?: AvaliacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Avaliacao
-     */
-    omit?: AvaliacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AvaliacaoInclude<ExtArgs> | null
-    /**
-     * Filter, which Avaliacao to fetch.
-     */
-    where: AvaliacaoWhereUniqueInput
-  }
-
-  /**
-   * Avaliacao findUniqueOrThrow
-   */
-  export type AvaliacaoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Avaliacao
-     */
-    select?: AvaliacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Avaliacao
-     */
-    omit?: AvaliacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AvaliacaoInclude<ExtArgs> | null
-    /**
-     * Filter, which Avaliacao to fetch.
-     */
-    where: AvaliacaoWhereUniqueInput
-  }
-
-  /**
-   * Avaliacao findFirst
-   */
-  export type AvaliacaoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Avaliacao
-     */
-    select?: AvaliacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Avaliacao
-     */
-    omit?: AvaliacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AvaliacaoInclude<ExtArgs> | null
-    /**
-     * Filter, which Avaliacao to fetch.
-     */
-    where?: AvaliacaoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Avaliacaos to fetch.
-     */
-    orderBy?: AvaliacaoOrderByWithRelationInput | AvaliacaoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Avaliacaos.
-     */
-    cursor?: AvaliacaoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Avaliacaos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Avaliacaos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Avaliacaos.
-     */
-    distinct?: AvaliacaoScalarFieldEnum | AvaliacaoScalarFieldEnum[]
-  }
-
-  /**
-   * Avaliacao findFirstOrThrow
-   */
-  export type AvaliacaoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Avaliacao
-     */
-    select?: AvaliacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Avaliacao
-     */
-    omit?: AvaliacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AvaliacaoInclude<ExtArgs> | null
-    /**
-     * Filter, which Avaliacao to fetch.
-     */
-    where?: AvaliacaoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Avaliacaos to fetch.
-     */
-    orderBy?: AvaliacaoOrderByWithRelationInput | AvaliacaoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Avaliacaos.
-     */
-    cursor?: AvaliacaoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Avaliacaos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Avaliacaos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Avaliacaos.
-     */
-    distinct?: AvaliacaoScalarFieldEnum | AvaliacaoScalarFieldEnum[]
-  }
-
-  /**
-   * Avaliacao findMany
-   */
-  export type AvaliacaoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Avaliacao
-     */
-    select?: AvaliacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Avaliacao
-     */
-    omit?: AvaliacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AvaliacaoInclude<ExtArgs> | null
-    /**
-     * Filter, which Avaliacaos to fetch.
-     */
-    where?: AvaliacaoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Avaliacaos to fetch.
-     */
-    orderBy?: AvaliacaoOrderByWithRelationInput | AvaliacaoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Avaliacaos.
-     */
-    cursor?: AvaliacaoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Avaliacaos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Avaliacaos.
-     */
-    skip?: number
-    distinct?: AvaliacaoScalarFieldEnum | AvaliacaoScalarFieldEnum[]
-  }
-
-  /**
-   * Avaliacao create
-   */
-  export type AvaliacaoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Avaliacao
-     */
-    select?: AvaliacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Avaliacao
-     */
-    omit?: AvaliacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AvaliacaoInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Avaliacao.
-     */
-    data: XOR<AvaliacaoCreateInput, AvaliacaoUncheckedCreateInput>
-  }
-
-  /**
-   * Avaliacao createMany
-   */
-  export type AvaliacaoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Avaliacaos.
-     */
-    data: AvaliacaoCreateManyInput | AvaliacaoCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Avaliacao update
-   */
-  export type AvaliacaoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Avaliacao
-     */
-    select?: AvaliacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Avaliacao
-     */
-    omit?: AvaliacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AvaliacaoInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Avaliacao.
-     */
-    data: XOR<AvaliacaoUpdateInput, AvaliacaoUncheckedUpdateInput>
-    /**
-     * Choose, which Avaliacao to update.
-     */
-    where: AvaliacaoWhereUniqueInput
-  }
-
-  /**
-   * Avaliacao updateMany
-   */
-  export type AvaliacaoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Avaliacaos.
-     */
-    data: XOR<AvaliacaoUpdateManyMutationInput, AvaliacaoUncheckedUpdateManyInput>
-    /**
-     * Filter which Avaliacaos to update
-     */
-    where?: AvaliacaoWhereInput
-    /**
-     * Limit how many Avaliacaos to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Avaliacao upsert
-   */
-  export type AvaliacaoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Avaliacao
-     */
-    select?: AvaliacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Avaliacao
-     */
-    omit?: AvaliacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AvaliacaoInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Avaliacao to update in case it exists.
-     */
-    where: AvaliacaoWhereUniqueInput
-    /**
-     * In case the Avaliacao found by the `where` argument doesn't exist, create a new Avaliacao with this data.
-     */
-    create: XOR<AvaliacaoCreateInput, AvaliacaoUncheckedCreateInput>
-    /**
-     * In case the Avaliacao was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<AvaliacaoUpdateInput, AvaliacaoUncheckedUpdateInput>
-  }
-
-  /**
-   * Avaliacao delete
-   */
-  export type AvaliacaoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Avaliacao
-     */
-    select?: AvaliacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Avaliacao
-     */
-    omit?: AvaliacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AvaliacaoInclude<ExtArgs> | null
-    /**
-     * Filter which Avaliacao to delete.
-     */
-    where: AvaliacaoWhereUniqueInput
-  }
-
-  /**
-   * Avaliacao deleteMany
-   */
-  export type AvaliacaoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Avaliacaos to delete
-     */
-    where?: AvaliacaoWhereInput
-    /**
-     * Limit how many Avaliacaos to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Avaliacao.jogo
-   */
-  export type Avaliacao$jogoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Jogo
-     */
-    select?: JogoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Jogo
-     */
-    omit?: JogoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: JogoInclude<ExtArgs> | null
-    where?: JogoWhereInput
-    orderBy?: JogoOrderByWithRelationInput | JogoOrderByWithRelationInput[]
-    cursor?: JogoWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: JogoScalarFieldEnum | JogoScalarFieldEnum[]
-  }
-
-  /**
-   * Avaliacao without action
-   */
-  export type AvaliacaoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Avaliacao
-     */
-    select?: AvaliacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Avaliacao
-     */
-    omit?: AvaliacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AvaliacaoInclude<ExtArgs> | null
-  }
-
-
-  /**
    * Model Usuario
    */
 
@@ -5096,21 +4026,18 @@ export namespace Prisma {
     id_jogo: number | null
     id_genero: number | null
     id_status: number | null
-    id_avaliacao: number | null
   }
 
   export type JogoSumAggregateOutputType = {
     id_jogo: number | null
     id_genero: number | null
     id_status: number | null
-    id_avaliacao: number | null
   }
 
   export type JogoMinAggregateOutputType = {
     id_jogo: number | null
     id_genero: number | null
     id_status: number | null
-    id_avaliacao: number | null
     nome: string | null
     desenvolvedora: string | null
     publisher: string | null
@@ -5121,7 +4048,6 @@ export namespace Prisma {
     id_jogo: number | null
     id_genero: number | null
     id_status: number | null
-    id_avaliacao: number | null
     nome: string | null
     desenvolvedora: string | null
     publisher: string | null
@@ -5132,7 +4058,6 @@ export namespace Prisma {
     id_jogo: number
     id_genero: number
     id_status: number
-    id_avaliacao: number
     nome: number
     desenvolvedora: number
     publisher: number
@@ -5145,21 +4070,18 @@ export namespace Prisma {
     id_jogo?: true
     id_genero?: true
     id_status?: true
-    id_avaliacao?: true
   }
 
   export type JogoSumAggregateInputType = {
     id_jogo?: true
     id_genero?: true
     id_status?: true
-    id_avaliacao?: true
   }
 
   export type JogoMinAggregateInputType = {
     id_jogo?: true
     id_genero?: true
     id_status?: true
-    id_avaliacao?: true
     nome?: true
     desenvolvedora?: true
     publisher?: true
@@ -5170,7 +4092,6 @@ export namespace Prisma {
     id_jogo?: true
     id_genero?: true
     id_status?: true
-    id_avaliacao?: true
     nome?: true
     desenvolvedora?: true
     publisher?: true
@@ -5181,7 +4102,6 @@ export namespace Prisma {
     id_jogo?: true
     id_genero?: true
     id_status?: true
-    id_avaliacao?: true
     nome?: true
     desenvolvedora?: true
     publisher?: true
@@ -5279,7 +4199,6 @@ export namespace Prisma {
     id_jogo: number
     id_genero: number
     id_status: number
-    id_avaliacao: number
     nome: string
     desenvolvedora: string
     publisher: string
@@ -5309,14 +4228,12 @@ export namespace Prisma {
     id_jogo?: boolean
     id_genero?: boolean
     id_status?: boolean
-    id_avaliacao?: boolean
     nome?: boolean
     desenvolvedora?: boolean
     publisher?: boolean
     descricao?: boolean
     genero?: boolean | GeneroDefaultArgs<ExtArgs>
     status?: boolean | StatusDefaultArgs<ExtArgs>
-    avaliacao?: boolean | AvaliacaoDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["jogo"]>
 
 
@@ -5325,18 +4242,16 @@ export namespace Prisma {
     id_jogo?: boolean
     id_genero?: boolean
     id_status?: boolean
-    id_avaliacao?: boolean
     nome?: boolean
     desenvolvedora?: boolean
     publisher?: boolean
     descricao?: boolean
   }
 
-  export type JogoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_jogo" | "id_genero" | "id_status" | "id_avaliacao" | "nome" | "desenvolvedora" | "publisher" | "descricao", ExtArgs["result"]["jogo"]>
+  export type JogoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id_jogo" | "id_genero" | "id_status" | "nome" | "desenvolvedora" | "publisher" | "descricao", ExtArgs["result"]["jogo"]>
   export type JogoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     genero?: boolean | GeneroDefaultArgs<ExtArgs>
     status?: boolean | StatusDefaultArgs<ExtArgs>
-    avaliacao?: boolean | AvaliacaoDefaultArgs<ExtArgs>
   }
 
   export type $JogoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5344,13 +4259,11 @@ export namespace Prisma {
     objects: {
       genero: Prisma.$GeneroPayload<ExtArgs>
       status: Prisma.$StatusPayload<ExtArgs>
-      avaliacao: Prisma.$AvaliacaoPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id_jogo: number
       id_genero: number
       id_status: number
-      id_avaliacao: number
       nome: string
       desenvolvedora: string
       publisher: string
@@ -5697,7 +4610,6 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     genero<T extends GeneroDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GeneroDefaultArgs<ExtArgs>>): Prisma__GeneroClient<$Result.GetResult<Prisma.$GeneroPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     status<T extends StatusDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StatusDefaultArgs<ExtArgs>>): Prisma__StatusClient<$Result.GetResult<Prisma.$StatusPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    avaliacao<T extends AvaliacaoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AvaliacaoDefaultArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5730,7 +4642,6 @@ export namespace Prisma {
     readonly id_jogo: FieldRef<"Jogo", 'Int'>
     readonly id_genero: FieldRef<"Jogo", 'Int'>
     readonly id_status: FieldRef<"Jogo", 'Int'>
-    readonly id_avaliacao: FieldRef<"Jogo", 'Int'>
     readonly nome: FieldRef<"Jogo", 'String'>
     readonly desenvolvedora: FieldRef<"Jogo", 'String'>
     readonly publisher: FieldRef<"Jogo", 'String'>
@@ -6126,14 +5037,6 @@ export namespace Prisma {
   export type StatusScalarFieldEnum = (typeof StatusScalarFieldEnum)[keyof typeof StatusScalarFieldEnum]
 
 
-  export const AvaliacaoScalarFieldEnum: {
-    id_avaliacao: 'id_avaliacao',
-    descricao: 'descricao'
-  };
-
-  export type AvaliacaoScalarFieldEnum = (typeof AvaliacaoScalarFieldEnum)[keyof typeof AvaliacaoScalarFieldEnum]
-
-
   export const UsuarioScalarFieldEnum: {
     id_usuario: 'id_usuario',
     email: 'email',
@@ -6150,7 +5053,6 @@ export namespace Prisma {
     id_jogo: 'id_jogo',
     id_genero: 'id_genero',
     id_status: 'id_status',
-    id_avaliacao: 'id_avaliacao',
     nome: 'nome',
     desenvolvedora: 'desenvolvedora',
     publisher: 'publisher',
@@ -6180,13 +5082,6 @@ export namespace Prisma {
   };
 
   export type StatusOrderByRelevanceFieldEnum = (typeof StatusOrderByRelevanceFieldEnum)[keyof typeof StatusOrderByRelevanceFieldEnum]
-
-
-  export const AvaliacaoOrderByRelevanceFieldEnum: {
-    descricao: 'descricao'
-  };
-
-  export type AvaliacaoOrderByRelevanceFieldEnum = (typeof AvaliacaoOrderByRelevanceFieldEnum)[keyof typeof AvaliacaoOrderByRelevanceFieldEnum]
 
 
   export const UsuarioOrderByRelevanceFieldEnum: {
@@ -6325,49 +5220,6 @@ export namespace Prisma {
     status?: StringWithAggregatesFilter<"Status"> | string
   }
 
-  export type AvaliacaoWhereInput = {
-    AND?: AvaliacaoWhereInput | AvaliacaoWhereInput[]
-    OR?: AvaliacaoWhereInput[]
-    NOT?: AvaliacaoWhereInput | AvaliacaoWhereInput[]
-    id_avaliacao?: IntFilter<"Avaliacao"> | number
-    descricao?: StringFilter<"Avaliacao"> | string
-    jogo?: JogoListRelationFilter
-  }
-
-  export type AvaliacaoOrderByWithRelationInput = {
-    id_avaliacao?: SortOrder
-    descricao?: SortOrder
-    jogo?: JogoOrderByRelationAggregateInput
-    _relevance?: AvaliacaoOrderByRelevanceInput
-  }
-
-  export type AvaliacaoWhereUniqueInput = Prisma.AtLeast<{
-    id_avaliacao?: number
-    AND?: AvaliacaoWhereInput | AvaliacaoWhereInput[]
-    OR?: AvaliacaoWhereInput[]
-    NOT?: AvaliacaoWhereInput | AvaliacaoWhereInput[]
-    descricao?: StringFilter<"Avaliacao"> | string
-    jogo?: JogoListRelationFilter
-  }, "id_avaliacao">
-
-  export type AvaliacaoOrderByWithAggregationInput = {
-    id_avaliacao?: SortOrder
-    descricao?: SortOrder
-    _count?: AvaliacaoCountOrderByAggregateInput
-    _avg?: AvaliacaoAvgOrderByAggregateInput
-    _max?: AvaliacaoMaxOrderByAggregateInput
-    _min?: AvaliacaoMinOrderByAggregateInput
-    _sum?: AvaliacaoSumOrderByAggregateInput
-  }
-
-  export type AvaliacaoScalarWhereWithAggregatesInput = {
-    AND?: AvaliacaoScalarWhereWithAggregatesInput | AvaliacaoScalarWhereWithAggregatesInput[]
-    OR?: AvaliacaoScalarWhereWithAggregatesInput[]
-    NOT?: AvaliacaoScalarWhereWithAggregatesInput | AvaliacaoScalarWhereWithAggregatesInput[]
-    id_avaliacao?: IntWithAggregatesFilter<"Avaliacao"> | number
-    descricao?: StringWithAggregatesFilter<"Avaliacao"> | string
-  }
-
   export type UsuarioWhereInput = {
     AND?: UsuarioWhereInput | UsuarioWhereInput[]
     OR?: UsuarioWhereInput[]
@@ -6435,28 +5287,24 @@ export namespace Prisma {
     id_jogo?: IntFilter<"Jogo"> | number
     id_genero?: IntFilter<"Jogo"> | number
     id_status?: IntFilter<"Jogo"> | number
-    id_avaliacao?: IntFilter<"Jogo"> | number
     nome?: StringFilter<"Jogo"> | string
     desenvolvedora?: StringFilter<"Jogo"> | string
     publisher?: StringFilter<"Jogo"> | string
     descricao?: StringFilter<"Jogo"> | string
     genero?: XOR<GeneroScalarRelationFilter, GeneroWhereInput>
     status?: XOR<StatusScalarRelationFilter, StatusWhereInput>
-    avaliacao?: XOR<AvaliacaoScalarRelationFilter, AvaliacaoWhereInput>
   }
 
   export type JogoOrderByWithRelationInput = {
     id_jogo?: SortOrder
     id_genero?: SortOrder
     id_status?: SortOrder
-    id_avaliacao?: SortOrder
     nome?: SortOrder
     desenvolvedora?: SortOrder
     publisher?: SortOrder
     descricao?: SortOrder
     genero?: GeneroOrderByWithRelationInput
     status?: StatusOrderByWithRelationInput
-    avaliacao?: AvaliacaoOrderByWithRelationInput
     _relevance?: JogoOrderByRelevanceInput
   }
 
@@ -6467,21 +5315,18 @@ export namespace Prisma {
     NOT?: JogoWhereInput | JogoWhereInput[]
     id_genero?: IntFilter<"Jogo"> | number
     id_status?: IntFilter<"Jogo"> | number
-    id_avaliacao?: IntFilter<"Jogo"> | number
     nome?: StringFilter<"Jogo"> | string
     desenvolvedora?: StringFilter<"Jogo"> | string
     publisher?: StringFilter<"Jogo"> | string
     descricao?: StringFilter<"Jogo"> | string
     genero?: XOR<GeneroScalarRelationFilter, GeneroWhereInput>
     status?: XOR<StatusScalarRelationFilter, StatusWhereInput>
-    avaliacao?: XOR<AvaliacaoScalarRelationFilter, AvaliacaoWhereInput>
   }, "id_jogo">
 
   export type JogoOrderByWithAggregationInput = {
     id_jogo?: SortOrder
     id_genero?: SortOrder
     id_status?: SortOrder
-    id_avaliacao?: SortOrder
     nome?: SortOrder
     desenvolvedora?: SortOrder
     publisher?: SortOrder
@@ -6500,7 +5345,6 @@ export namespace Prisma {
     id_jogo?: IntWithAggregatesFilter<"Jogo"> | number
     id_genero?: IntWithAggregatesFilter<"Jogo"> | number
     id_status?: IntWithAggregatesFilter<"Jogo"> | number
-    id_avaliacao?: IntWithAggregatesFilter<"Jogo"> | number
     nome?: StringWithAggregatesFilter<"Jogo"> | string
     desenvolvedora?: StringWithAggregatesFilter<"Jogo"> | string
     publisher?: StringWithAggregatesFilter<"Jogo"> | string
@@ -6585,45 +5429,6 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
   }
 
-  export type AvaliacaoCreateInput = {
-    id_avaliacao: number
-    descricao: string
-    jogo?: JogoCreateNestedManyWithoutAvaliacaoInput
-  }
-
-  export type AvaliacaoUncheckedCreateInput = {
-    id_avaliacao: number
-    descricao: string
-    jogo?: JogoUncheckedCreateNestedManyWithoutAvaliacaoInput
-  }
-
-  export type AvaliacaoUpdateInput = {
-    id_avaliacao?: IntFieldUpdateOperationsInput | number
-    descricao?: StringFieldUpdateOperationsInput | string
-    jogo?: JogoUpdateManyWithoutAvaliacaoNestedInput
-  }
-
-  export type AvaliacaoUncheckedUpdateInput = {
-    id_avaliacao?: IntFieldUpdateOperationsInput | number
-    descricao?: StringFieldUpdateOperationsInput | string
-    jogo?: JogoUncheckedUpdateManyWithoutAvaliacaoNestedInput
-  }
-
-  export type AvaliacaoCreateManyInput = {
-    id_avaliacao: number
-    descricao: string
-  }
-
-  export type AvaliacaoUpdateManyMutationInput = {
-    id_avaliacao?: IntFieldUpdateOperationsInput | number
-    descricao?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type AvaliacaoUncheckedUpdateManyInput = {
-    id_avaliacao?: IntFieldUpdateOperationsInput | number
-    descricao?: StringFieldUpdateOperationsInput | string
-  }
-
   export type UsuarioCreateInput = {
     email: string
     nome: string
@@ -6691,14 +5496,12 @@ export namespace Prisma {
     descricao: string
     genero: GeneroCreateNestedOneWithoutJogoInput
     status: StatusCreateNestedOneWithoutJogoInput
-    avaliacao: AvaliacaoCreateNestedOneWithoutJogoInput
   }
 
   export type JogoUncheckedCreateInput = {
     id_jogo?: number
     id_genero: number
     id_status: number
-    id_avaliacao: number
     nome: string
     desenvolvedora: string
     publisher: string
@@ -6712,14 +5515,12 @@ export namespace Prisma {
     descricao?: StringFieldUpdateOperationsInput | string
     genero?: GeneroUpdateOneRequiredWithoutJogoNestedInput
     status?: StatusUpdateOneRequiredWithoutJogoNestedInput
-    avaliacao?: AvaliacaoUpdateOneRequiredWithoutJogoNestedInput
   }
 
   export type JogoUncheckedUpdateInput = {
     id_jogo?: IntFieldUpdateOperationsInput | number
     id_genero?: IntFieldUpdateOperationsInput | number
     id_status?: IntFieldUpdateOperationsInput | number
-    id_avaliacao?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     desenvolvedora?: StringFieldUpdateOperationsInput | string
     publisher?: StringFieldUpdateOperationsInput | string
@@ -6730,7 +5531,6 @@ export namespace Prisma {
     id_jogo?: number
     id_genero: number
     id_status: number
-    id_avaliacao: number
     nome: string
     desenvolvedora: string
     publisher: string
@@ -6748,7 +5548,6 @@ export namespace Prisma {
     id_jogo?: IntFieldUpdateOperationsInput | number
     id_genero?: IntFieldUpdateOperationsInput | number
     id_status?: IntFieldUpdateOperationsInput | number
-    id_avaliacao?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     desenvolvedora?: StringFieldUpdateOperationsInput | string
     publisher?: StringFieldUpdateOperationsInput | string
@@ -6883,35 +5682,6 @@ export namespace Prisma {
     id_status?: SortOrder
   }
 
-  export type AvaliacaoOrderByRelevanceInput = {
-    fields: AvaliacaoOrderByRelevanceFieldEnum | AvaliacaoOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
-  export type AvaliacaoCountOrderByAggregateInput = {
-    id_avaliacao?: SortOrder
-    descricao?: SortOrder
-  }
-
-  export type AvaliacaoAvgOrderByAggregateInput = {
-    id_avaliacao?: SortOrder
-  }
-
-  export type AvaliacaoMaxOrderByAggregateInput = {
-    id_avaliacao?: SortOrder
-    descricao?: SortOrder
-  }
-
-  export type AvaliacaoMinOrderByAggregateInput = {
-    id_avaliacao?: SortOrder
-    descricao?: SortOrder
-  }
-
-  export type AvaliacaoSumOrderByAggregateInput = {
-    id_avaliacao?: SortOrder
-  }
-
   export type UsuarioOrderByRelevanceInput = {
     fields: UsuarioOrderByRelevanceFieldEnum | UsuarioOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -6963,11 +5733,6 @@ export namespace Prisma {
     isNot?: StatusWhereInput
   }
 
-  export type AvaliacaoScalarRelationFilter = {
-    is?: AvaliacaoWhereInput
-    isNot?: AvaliacaoWhereInput
-  }
-
   export type JogoOrderByRelevanceInput = {
     fields: JogoOrderByRelevanceFieldEnum | JogoOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -6978,7 +5743,6 @@ export namespace Prisma {
     id_jogo?: SortOrder
     id_genero?: SortOrder
     id_status?: SortOrder
-    id_avaliacao?: SortOrder
     nome?: SortOrder
     desenvolvedora?: SortOrder
     publisher?: SortOrder
@@ -6989,14 +5753,12 @@ export namespace Prisma {
     id_jogo?: SortOrder
     id_genero?: SortOrder
     id_status?: SortOrder
-    id_avaliacao?: SortOrder
   }
 
   export type JogoMaxOrderByAggregateInput = {
     id_jogo?: SortOrder
     id_genero?: SortOrder
     id_status?: SortOrder
-    id_avaliacao?: SortOrder
     nome?: SortOrder
     desenvolvedora?: SortOrder
     publisher?: SortOrder
@@ -7007,7 +5769,6 @@ export namespace Prisma {
     id_jogo?: SortOrder
     id_genero?: SortOrder
     id_status?: SortOrder
-    id_avaliacao?: SortOrder
     nome?: SortOrder
     desenvolvedora?: SortOrder
     publisher?: SortOrder
@@ -7018,7 +5779,6 @@ export namespace Prisma {
     id_jogo?: SortOrder
     id_genero?: SortOrder
     id_status?: SortOrder
-    id_avaliacao?: SortOrder
   }
 
   export type JogoCreateNestedManyWithoutGeneroInput = {
@@ -7117,48 +5877,6 @@ export namespace Prisma {
     deleteMany?: JogoScalarWhereInput | JogoScalarWhereInput[]
   }
 
-  export type JogoCreateNestedManyWithoutAvaliacaoInput = {
-    create?: XOR<JogoCreateWithoutAvaliacaoInput, JogoUncheckedCreateWithoutAvaliacaoInput> | JogoCreateWithoutAvaliacaoInput[] | JogoUncheckedCreateWithoutAvaliacaoInput[]
-    connectOrCreate?: JogoCreateOrConnectWithoutAvaliacaoInput | JogoCreateOrConnectWithoutAvaliacaoInput[]
-    createMany?: JogoCreateManyAvaliacaoInputEnvelope
-    connect?: JogoWhereUniqueInput | JogoWhereUniqueInput[]
-  }
-
-  export type JogoUncheckedCreateNestedManyWithoutAvaliacaoInput = {
-    create?: XOR<JogoCreateWithoutAvaliacaoInput, JogoUncheckedCreateWithoutAvaliacaoInput> | JogoCreateWithoutAvaliacaoInput[] | JogoUncheckedCreateWithoutAvaliacaoInput[]
-    connectOrCreate?: JogoCreateOrConnectWithoutAvaliacaoInput | JogoCreateOrConnectWithoutAvaliacaoInput[]
-    createMany?: JogoCreateManyAvaliacaoInputEnvelope
-    connect?: JogoWhereUniqueInput | JogoWhereUniqueInput[]
-  }
-
-  export type JogoUpdateManyWithoutAvaliacaoNestedInput = {
-    create?: XOR<JogoCreateWithoutAvaliacaoInput, JogoUncheckedCreateWithoutAvaliacaoInput> | JogoCreateWithoutAvaliacaoInput[] | JogoUncheckedCreateWithoutAvaliacaoInput[]
-    connectOrCreate?: JogoCreateOrConnectWithoutAvaliacaoInput | JogoCreateOrConnectWithoutAvaliacaoInput[]
-    upsert?: JogoUpsertWithWhereUniqueWithoutAvaliacaoInput | JogoUpsertWithWhereUniqueWithoutAvaliacaoInput[]
-    createMany?: JogoCreateManyAvaliacaoInputEnvelope
-    set?: JogoWhereUniqueInput | JogoWhereUniqueInput[]
-    disconnect?: JogoWhereUniqueInput | JogoWhereUniqueInput[]
-    delete?: JogoWhereUniqueInput | JogoWhereUniqueInput[]
-    connect?: JogoWhereUniqueInput | JogoWhereUniqueInput[]
-    update?: JogoUpdateWithWhereUniqueWithoutAvaliacaoInput | JogoUpdateWithWhereUniqueWithoutAvaliacaoInput[]
-    updateMany?: JogoUpdateManyWithWhereWithoutAvaliacaoInput | JogoUpdateManyWithWhereWithoutAvaliacaoInput[]
-    deleteMany?: JogoScalarWhereInput | JogoScalarWhereInput[]
-  }
-
-  export type JogoUncheckedUpdateManyWithoutAvaliacaoNestedInput = {
-    create?: XOR<JogoCreateWithoutAvaliacaoInput, JogoUncheckedCreateWithoutAvaliacaoInput> | JogoCreateWithoutAvaliacaoInput[] | JogoUncheckedCreateWithoutAvaliacaoInput[]
-    connectOrCreate?: JogoCreateOrConnectWithoutAvaliacaoInput | JogoCreateOrConnectWithoutAvaliacaoInput[]
-    upsert?: JogoUpsertWithWhereUniqueWithoutAvaliacaoInput | JogoUpsertWithWhereUniqueWithoutAvaliacaoInput[]
-    createMany?: JogoCreateManyAvaliacaoInputEnvelope
-    set?: JogoWhereUniqueInput | JogoWhereUniqueInput[]
-    disconnect?: JogoWhereUniqueInput | JogoWhereUniqueInput[]
-    delete?: JogoWhereUniqueInput | JogoWhereUniqueInput[]
-    connect?: JogoWhereUniqueInput | JogoWhereUniqueInput[]
-    update?: JogoUpdateWithWhereUniqueWithoutAvaliacaoInput | JogoUpdateWithWhereUniqueWithoutAvaliacaoInput[]
-    updateMany?: JogoUpdateManyWithWhereWithoutAvaliacaoInput | JogoUpdateManyWithWhereWithoutAvaliacaoInput[]
-    deleteMany?: JogoScalarWhereInput | JogoScalarWhereInput[]
-  }
-
   export type GeneroCreateNestedOneWithoutJogoInput = {
     create?: XOR<GeneroCreateWithoutJogoInput, GeneroUncheckedCreateWithoutJogoInput>
     connectOrCreate?: GeneroCreateOrConnectWithoutJogoInput
@@ -7169,12 +5887,6 @@ export namespace Prisma {
     create?: XOR<StatusCreateWithoutJogoInput, StatusUncheckedCreateWithoutJogoInput>
     connectOrCreate?: StatusCreateOrConnectWithoutJogoInput
     connect?: StatusWhereUniqueInput
-  }
-
-  export type AvaliacaoCreateNestedOneWithoutJogoInput = {
-    create?: XOR<AvaliacaoCreateWithoutJogoInput, AvaliacaoUncheckedCreateWithoutJogoInput>
-    connectOrCreate?: AvaliacaoCreateOrConnectWithoutJogoInput
-    connect?: AvaliacaoWhereUniqueInput
   }
 
   export type GeneroUpdateOneRequiredWithoutJogoNestedInput = {
@@ -7191,14 +5903,6 @@ export namespace Prisma {
     upsert?: StatusUpsertWithoutJogoInput
     connect?: StatusWhereUniqueInput
     update?: XOR<XOR<StatusUpdateToOneWithWhereWithoutJogoInput, StatusUpdateWithoutJogoInput>, StatusUncheckedUpdateWithoutJogoInput>
-  }
-
-  export type AvaliacaoUpdateOneRequiredWithoutJogoNestedInput = {
-    create?: XOR<AvaliacaoCreateWithoutJogoInput, AvaliacaoUncheckedCreateWithoutJogoInput>
-    connectOrCreate?: AvaliacaoCreateOrConnectWithoutJogoInput
-    upsert?: AvaliacaoUpsertWithoutJogoInput
-    connect?: AvaliacaoWhereUniqueInput
-    update?: XOR<XOR<AvaliacaoUpdateToOneWithWhereWithoutJogoInput, AvaliacaoUpdateWithoutJogoInput>, AvaliacaoUncheckedUpdateWithoutJogoInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -7278,13 +5982,11 @@ export namespace Prisma {
     publisher: string
     descricao: string
     status: StatusCreateNestedOneWithoutJogoInput
-    avaliacao: AvaliacaoCreateNestedOneWithoutJogoInput
   }
 
   export type JogoUncheckedCreateWithoutGeneroInput = {
     id_jogo?: number
     id_status: number
-    id_avaliacao: number
     nome: string
     desenvolvedora: string
     publisher: string
@@ -7324,7 +6026,6 @@ export namespace Prisma {
     id_jogo?: IntFilter<"Jogo"> | number
     id_genero?: IntFilter<"Jogo"> | number
     id_status?: IntFilter<"Jogo"> | number
-    id_avaliacao?: IntFilter<"Jogo"> | number
     nome?: StringFilter<"Jogo"> | string
     desenvolvedora?: StringFilter<"Jogo"> | string
     publisher?: StringFilter<"Jogo"> | string
@@ -7337,13 +6038,11 @@ export namespace Prisma {
     publisher: string
     descricao: string
     genero: GeneroCreateNestedOneWithoutJogoInput
-    avaliacao: AvaliacaoCreateNestedOneWithoutJogoInput
   }
 
   export type JogoUncheckedCreateWithoutStatusInput = {
     id_jogo?: number
     id_genero: number
-    id_avaliacao: number
     nome: string
     desenvolvedora: string
     publisher: string
@@ -7376,51 +6075,6 @@ export namespace Prisma {
     data: XOR<JogoUpdateManyMutationInput, JogoUncheckedUpdateManyWithoutStatusInput>
   }
 
-  export type JogoCreateWithoutAvaliacaoInput = {
-    nome: string
-    desenvolvedora: string
-    publisher: string
-    descricao: string
-    genero: GeneroCreateNestedOneWithoutJogoInput
-    status: StatusCreateNestedOneWithoutJogoInput
-  }
-
-  export type JogoUncheckedCreateWithoutAvaliacaoInput = {
-    id_jogo?: number
-    id_genero: number
-    id_status: number
-    nome: string
-    desenvolvedora: string
-    publisher: string
-    descricao: string
-  }
-
-  export type JogoCreateOrConnectWithoutAvaliacaoInput = {
-    where: JogoWhereUniqueInput
-    create: XOR<JogoCreateWithoutAvaliacaoInput, JogoUncheckedCreateWithoutAvaliacaoInput>
-  }
-
-  export type JogoCreateManyAvaliacaoInputEnvelope = {
-    data: JogoCreateManyAvaliacaoInput | JogoCreateManyAvaliacaoInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type JogoUpsertWithWhereUniqueWithoutAvaliacaoInput = {
-    where: JogoWhereUniqueInput
-    update: XOR<JogoUpdateWithoutAvaliacaoInput, JogoUncheckedUpdateWithoutAvaliacaoInput>
-    create: XOR<JogoCreateWithoutAvaliacaoInput, JogoUncheckedCreateWithoutAvaliacaoInput>
-  }
-
-  export type JogoUpdateWithWhereUniqueWithoutAvaliacaoInput = {
-    where: JogoWhereUniqueInput
-    data: XOR<JogoUpdateWithoutAvaliacaoInput, JogoUncheckedUpdateWithoutAvaliacaoInput>
-  }
-
-  export type JogoUpdateManyWithWhereWithoutAvaliacaoInput = {
-    where: JogoScalarWhereInput
-    data: XOR<JogoUpdateManyMutationInput, JogoUncheckedUpdateManyWithoutAvaliacaoInput>
-  }
-
   export type GeneroCreateWithoutJogoInput = {
     id_genero: number
     genero: string
@@ -7449,21 +6103,6 @@ export namespace Prisma {
   export type StatusCreateOrConnectWithoutJogoInput = {
     where: StatusWhereUniqueInput
     create: XOR<StatusCreateWithoutJogoInput, StatusUncheckedCreateWithoutJogoInput>
-  }
-
-  export type AvaliacaoCreateWithoutJogoInput = {
-    id_avaliacao: number
-    descricao: string
-  }
-
-  export type AvaliacaoUncheckedCreateWithoutJogoInput = {
-    id_avaliacao: number
-    descricao: string
-  }
-
-  export type AvaliacaoCreateOrConnectWithoutJogoInput = {
-    where: AvaliacaoWhereUniqueInput
-    create: XOR<AvaliacaoCreateWithoutJogoInput, AvaliacaoUncheckedCreateWithoutJogoInput>
   }
 
   export type GeneroUpsertWithoutJogoInput = {
@@ -7508,31 +6147,9 @@ export namespace Prisma {
     status?: StringFieldUpdateOperationsInput | string
   }
 
-  export type AvaliacaoUpsertWithoutJogoInput = {
-    update: XOR<AvaliacaoUpdateWithoutJogoInput, AvaliacaoUncheckedUpdateWithoutJogoInput>
-    create: XOR<AvaliacaoCreateWithoutJogoInput, AvaliacaoUncheckedCreateWithoutJogoInput>
-    where?: AvaliacaoWhereInput
-  }
-
-  export type AvaliacaoUpdateToOneWithWhereWithoutJogoInput = {
-    where?: AvaliacaoWhereInput
-    data: XOR<AvaliacaoUpdateWithoutJogoInput, AvaliacaoUncheckedUpdateWithoutJogoInput>
-  }
-
-  export type AvaliacaoUpdateWithoutJogoInput = {
-    id_avaliacao?: IntFieldUpdateOperationsInput | number
-    descricao?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type AvaliacaoUncheckedUpdateWithoutJogoInput = {
-    id_avaliacao?: IntFieldUpdateOperationsInput | number
-    descricao?: StringFieldUpdateOperationsInput | string
-  }
-
   export type JogoCreateManyGeneroInput = {
     id_jogo?: number
     id_status: number
-    id_avaliacao: number
     nome: string
     desenvolvedora: string
     publisher: string
@@ -7545,13 +6162,11 @@ export namespace Prisma {
     publisher?: StringFieldUpdateOperationsInput | string
     descricao?: StringFieldUpdateOperationsInput | string
     status?: StatusUpdateOneRequiredWithoutJogoNestedInput
-    avaliacao?: AvaliacaoUpdateOneRequiredWithoutJogoNestedInput
   }
 
   export type JogoUncheckedUpdateWithoutGeneroInput = {
     id_jogo?: IntFieldUpdateOperationsInput | number
     id_status?: IntFieldUpdateOperationsInput | number
-    id_avaliacao?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     desenvolvedora?: StringFieldUpdateOperationsInput | string
     publisher?: StringFieldUpdateOperationsInput | string
@@ -7561,7 +6176,6 @@ export namespace Prisma {
   export type JogoUncheckedUpdateManyWithoutGeneroInput = {
     id_jogo?: IntFieldUpdateOperationsInput | number
     id_status?: IntFieldUpdateOperationsInput | number
-    id_avaliacao?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     desenvolvedora?: StringFieldUpdateOperationsInput | string
     publisher?: StringFieldUpdateOperationsInput | string
@@ -7571,7 +6185,6 @@ export namespace Prisma {
   export type JogoCreateManyStatusInput = {
     id_jogo?: number
     id_genero: number
-    id_avaliacao: number
     nome: string
     desenvolvedora: string
     publisher: string
@@ -7584,13 +6197,11 @@ export namespace Prisma {
     publisher?: StringFieldUpdateOperationsInput | string
     descricao?: StringFieldUpdateOperationsInput | string
     genero?: GeneroUpdateOneRequiredWithoutJogoNestedInput
-    avaliacao?: AvaliacaoUpdateOneRequiredWithoutJogoNestedInput
   }
 
   export type JogoUncheckedUpdateWithoutStatusInput = {
     id_jogo?: IntFieldUpdateOperationsInput | number
     id_genero?: IntFieldUpdateOperationsInput | number
-    id_avaliacao?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     desenvolvedora?: StringFieldUpdateOperationsInput | string
     publisher?: StringFieldUpdateOperationsInput | string
@@ -7600,46 +6211,6 @@ export namespace Prisma {
   export type JogoUncheckedUpdateManyWithoutStatusInput = {
     id_jogo?: IntFieldUpdateOperationsInput | number
     id_genero?: IntFieldUpdateOperationsInput | number
-    id_avaliacao?: IntFieldUpdateOperationsInput | number
-    nome?: StringFieldUpdateOperationsInput | string
-    desenvolvedora?: StringFieldUpdateOperationsInput | string
-    publisher?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type JogoCreateManyAvaliacaoInput = {
-    id_jogo?: number
-    id_genero: number
-    id_status: number
-    nome: string
-    desenvolvedora: string
-    publisher: string
-    descricao: string
-  }
-
-  export type JogoUpdateWithoutAvaliacaoInput = {
-    nome?: StringFieldUpdateOperationsInput | string
-    desenvolvedora?: StringFieldUpdateOperationsInput | string
-    publisher?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
-    genero?: GeneroUpdateOneRequiredWithoutJogoNestedInput
-    status?: StatusUpdateOneRequiredWithoutJogoNestedInput
-  }
-
-  export type JogoUncheckedUpdateWithoutAvaliacaoInput = {
-    id_jogo?: IntFieldUpdateOperationsInput | number
-    id_genero?: IntFieldUpdateOperationsInput | number
-    id_status?: IntFieldUpdateOperationsInput | number
-    nome?: StringFieldUpdateOperationsInput | string
-    desenvolvedora?: StringFieldUpdateOperationsInput | string
-    publisher?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type JogoUncheckedUpdateManyWithoutAvaliacaoInput = {
-    id_jogo?: IntFieldUpdateOperationsInput | number
-    id_genero?: IntFieldUpdateOperationsInput | number
-    id_status?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
     desenvolvedora?: StringFieldUpdateOperationsInput | string
     publisher?: StringFieldUpdateOperationsInput | string

@@ -72,10 +72,9 @@ id_jogo int primary key auto_increment,
 id_genero int,
 id_status int,
 nome varchar(30),
-desenvolvedora varchar(30),
-publisher varchar(30),
-descricao varchar(100),
-deletado int default 0,
+desenvolvedora varchar(100),
+publisher varchar(100),
+descricao varchar(500),
 
 constraint fk_genero foreign key (id_genero)
 references Genero(id_genero),
@@ -84,10 +83,11 @@ references Status(id_status)
 );
 
 
-insert into Jogo(nome_jogo, desenvolvedora, publisher, descricao, id_genero, id_Status)
+insert into Jogo(nome, desenvolvedora, publisher, descricao, id_genero, id_Status)
 values("Hollow Knight", "Team Cherry", "Team Cherry", "Uma aventura de ação épica em um vasto reino arruinado de insetos e heróis.", 11, 1);
 
 select * from Genero;
 select * from Status;
 select * from Usuario;
 select * from Jogo;
+drop database dbcarteiragamer;

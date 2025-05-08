@@ -29,12 +29,12 @@ model Status {
   jogo Jogo[]
 }
 
-model Avaliacao {
+/* model Avaliacao {
   id_avaliacao Int @id
   descricao String
 
   jogo Jogo[]
-}
+} */
 
 // Modelos das tabelas principais
 model Usuario {
@@ -50,7 +50,6 @@ model Jogo {
   id_jogo Int @id @default(autoincrement())
   id_genero Int 
   id_status Int
-  id_avaliacao Int
   nome String
   desenvolvedora String
   publisher String
@@ -58,5 +57,4 @@ model Jogo {
 
   genero Genero @relation(fields: [id_genero], references: [id_genero])
   status Status @relation(fields: [id_status], references: [id_status])
-  avaliacao Avaliacao @relation(fields: [id_avaliacao], references: [id_avaliacao])
 }

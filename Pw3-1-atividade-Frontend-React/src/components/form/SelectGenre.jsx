@@ -8,19 +8,19 @@ function SelectGenre({text, name, id, handlerChange}) {
 
             <select name={name} id={id} onChange={handlerChange}>
                 <option value="">Selecione um gênero</option>
-                <option value="">Ação</option>
-                <option value="">Aventura</option>
-                <option value="">RPG de Ação</option>
-                <option value="">RPG de Turno</option>
-                <option value="">Estratégia</option>
-                <option value="">Puzzle</option>
-                <option value="">Luta</option>
-                <option value="">Hack-n-slash</option>
-                <option value="">Souls-Like</option>
-                <option value="">Rogue-Like</option>
-                <option value="">Metroidvania</option>
-                <option value="">Terror</option>
-                <option value="">Survival Horror</option>
+                <option value="1">Ação</option>
+                <option value="2">Aventura</option>
+                <option value="3">RPG de Ação</option>
+                <option value="4">RPG de Turno</option>
+                <option value="5">Estratégia</option>
+                <option value="6">Puzzle</option>
+                <option value="7">Luta</option>
+                <option value="8">Hack-n-slash</option>
+                <option value="9">Souls-Like</option>
+                <option value="10">Rogue-Like</option>
+                <option value="11">Metroidvania</option>
+                <option value="12">Terror</option>
+                <option value="13">Survival Horror</option>
             </select>
 
         </div>

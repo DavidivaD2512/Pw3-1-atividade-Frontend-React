@@ -9,27 +9,22 @@ const NavBar = ()=>{
             <nav className={style.navbar}>
 
                 <ul className={style.list}>
-
-                    <Link to='/'>
-                        <li className={style.item}></li>
+                 
+                    <Link className={style.item} to='/'>
+                        <li>Início</li>
+                    </Link>
+                    
+                    <Link className={style.item} to='/games/newGame'>
+                        <li>Cadastrar Jogos</li>
                     </Link>
                     
 
-                    <Link to='/'>
-                        <li className={style.item}>HOME</li>
-                    </Link>
-                    
-                    <Link to='/newGame'>
-                        <li className={style.item}>CADASTRAR JOGOS</li>
-                    </Link>
-                    
-
-                    <Link to='/viewGames'>
-                        <li className={style.item}>SUA LISTA DE JOGOS</li>
+                    <Link className={style.item} to='/games/viewGames'>
+                        <li>Minha Lista</li>
                     </Link>
 
-                    <Link to='/User/Register'>
-                        <li className={style.item}>CADASTRE-SE</li>
+                    <Link className={style.item} to='/User/Register'>
+                        <li>Cadastre-se</li>
                     </Link>
 
                 </ul>

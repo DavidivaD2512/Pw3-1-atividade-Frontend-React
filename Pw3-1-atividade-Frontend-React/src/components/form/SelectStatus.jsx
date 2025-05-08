@@ -8,15 +8,15 @@ function SelectStatus({text, name, id, handlerChange}) {
 
             <select name={name} id={id} onChange={handlerChange}>
                 <option value="">Selecione um status</option>
-                <option value="">Platinado</option>
-                <option value="">Zerado</option>
-                <option value="">Jogando</option>
-                <option value="">Em pausa</option>
-                <option value="">Na fila</option>
-                <option value="">Dropado</option>
-                <option value="">Na lista de desejos</option>
-                <option value="">Esperando promoção</option>
-                <option value="">Eperando o lançamento</option>
+                <option value="1">Platinado</option>
+                <option value="2">Zerado</option>
+                <option value="3">Jogando</option>
+                <option value="4">Em pausa</option>
+                <option value="5">Na fila</option>
+                <option value="6">Dropado</option>
+                <option value="7">Na lista de desejos</option>
+                <option value="8">Esperando promoção</option>
+                <option value="9">Eperando o lançamento</option>
             </select>
 
         </div>
