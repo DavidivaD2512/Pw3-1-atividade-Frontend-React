@@ -168,7 +168,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Desktop\\Documents\\Pw3-1-atividade-Frontend-React\\Api-CarteiraGamer\\generated\\prisma",
+      "value": "C:\\Users\\Alunos\\Documents\\Pw3-1-atividade-Frontend-React\\Api-CarteiraGamer\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -182,7 +182,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Desktop\\Documents\\Pw3-1-atividade-Frontend-React\\Api-CarteiraGamer\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\Alunos\\Documents\\Pw3-1-atividade-Frontend-React\\Api-CarteiraGamer\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -200,7 +200,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "mysql://root:@localhost:3306/dbcarteiragamer"
+        "value": "mysql://root:etecembu@123@localhost:3306/dbcarteiragamer"
       }
     }
   },

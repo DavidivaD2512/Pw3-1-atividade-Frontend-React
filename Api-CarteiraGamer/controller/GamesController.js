@@ -29,6 +29,28 @@ route.get("/viewGames", async (req,res) => {
 
 });
 
+route.get("/Detalhes/:id_jogo", async (req, res) => {
+    try {
+        const { id_jogo } = req.params;
+
+        const jogo = await prisma.jogo.findUnique({
+            where: { id_jogo }
+        });
+
+        return res.status(200).json({
+            errorStatus: false,
+            mensagemStatus: 'JOGO LISTADO COM SUCESSO',
+            data: jogo
+        }); 
+    } catch (error) {
+        return res.status(400).json({
+            errorStatus: true,
+            mensagemStatus: 'HOUVE UM ERRO AO LISTAR O JOGO',
+            errorObject: error.message
+        });
+    }
+})
+
 route.post("/newGame", async (req, res) => {
     try {
         console.log("Dados recebidos:", req.body); 

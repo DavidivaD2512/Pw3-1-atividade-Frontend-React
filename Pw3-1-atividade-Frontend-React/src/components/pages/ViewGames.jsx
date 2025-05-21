@@ -5,6 +5,8 @@ import ContainerGame from "../layout/ContainerGame";
 import GameCard from "../GameCard";
 import api from '../../services/api';
 
+import hollow from '../../assets/hollow_knight.jpg';
+
 const ViewGames = ()=>{
 
     const [games, setGames] = useState([]);
@@ -40,6 +42,8 @@ const ViewGames = ()=>{
                             publisher={game.publisher}
                             genero={game.genero.genero}
                             status={game.status.status}
+                            imagem={hollow}
+                            id_jogo={game.id_jogo}
                         />
                     ))
                 ) : (

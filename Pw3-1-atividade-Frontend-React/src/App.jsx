@@ -8,6 +8,7 @@ import Home from './components/pages/Home';
 import CreateGame from './components/pages/CreateGame';
 import ViewGames from './components/pages/ViewGames';
 import Register from './components/pages/Register';
+import Detail from './components/pages/DetailGame';
 
 import NavBar from './components/layout/NavBar';
 
@@ -27,9 +28,10 @@ function App() {
               <Route path='/' element={<NavBar />}>
 
                 <Route path='/' element={<Home />} />
-                <Route path='/games/newGame' element={<CreateGame />} />
-                <Route path='/games/viewGames' element={<ViewGames />} />
-                <Route path='/User/register' element={<Register />} />
+                <Route path='/Games/NewGame' element={<CreateGame />} />
+                <Route path='/Games/ViewGames' element={<ViewGames />} />
+                <Route path='/User/Register' element={<Register />} />
+                <Route path='/Games/Detalhes/:id_jogo' element={<Detail />} />
 
               </Route>
 

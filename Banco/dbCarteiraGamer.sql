@@ -90,4 +90,4 @@ select * from Genero;
 select * from Status;
 select * from Usuario;
 select * from Jogo;
-drop database dbcarteiragamer;
+/*drop database dbcarteiragamer;
