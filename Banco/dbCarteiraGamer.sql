@@ -84,10 +84,10 @@ references Status(id_status)
 
 
 insert into Jogo(nome, desenvolvedora, publisher, descricao, id_genero, id_Status)
-values("Hollow Knight", "Team Cherry", "Team Cherry", "Uma aventura de ação épica em um vasto reino arruinado de insetos e heróis.", 11, 1);
+values("Hollow Knight", "Team Cherry", "Team Cherry", "Hollow Knight é uma aventura de ação clássica em estilo 2D por um vasto mundo interligado. Explore cavernas serpenteantes, cidades antigas e ermos mortais; lute contra criaturas malignas e alie-se a insetos bizarros, e solucione mistérios antigos no centro do reino.", 11, 1);
 
-select * from Genero;
+/*select * from Genero;
 select * from Status;
 select * from Usuario;
 select * from Jogo;
-/*drop database dbcarteiragamer;
+drop database dbcarteiragamer;

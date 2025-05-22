@@ -34,7 +34,8 @@ route.get("/Detalhes/:id_jogo", async (req, res) => {
         const { id_jogo } = req.params;
 
         const jogo = await prisma.jogo.findUnique({
-            where: { id_jogo }
+            where: { id_jogo: Number(id_jogo) },
+            include: {genero: true, status: true}
         });
 
         return res.status(200).json({

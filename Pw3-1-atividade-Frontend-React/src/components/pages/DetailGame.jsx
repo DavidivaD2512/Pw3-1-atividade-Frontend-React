@@ -5,7 +5,7 @@ import api from '../../services/api';
 import style from './DetailGame.module.css'
 import Button from '../Button'
 
-import hollow from '../../assets/hollow_knight.jpg'
+import hollow from '../../assets/hollow_full.jpeg'
 
 const DetailGame = () => {
     const { id_jogo } = useParams();
@@ -27,40 +27,40 @@ const DetailGame = () => {
     }, []);
 
     return (
-        <div className={style.grid}>
-            
-            <div className={style.container_img}>
-                <img className={style.img_book_detail} src={hollow}/>
-            </div>
-
-            <div className={style.info}>
-
-                <span className={style.titulo}>{game.nome}</span>
-                <span className={style.autor}>{game.publisher}</span>
-
-                <span className={style.descricao}>
-                    {game.descricao}
-                </span>
-
-                <div className={style.container_buttons}>
-                    <Button 
-                        label='EDITAR'
-                        router='/updateGame/'
-                        id_jogo={game.id_jogo}
-                    />
-
-                    <Button 
-                        label='EXCLUIR'
-                        router='/deleteGame/'
-                        id_jogo={game.id_jogo}
-                    />
-
+    <div className={style.container}>
+        {Object.keys(game).length === 0 ? (
+            <p>Carregando...</p>
+        ) : (
+            <>
+                <div className={style.info}>
+                    <span className={style.titulo}>{game.nome}</span>
+                    <span className={style.desenvolvedora}>Desenvolvido por: {game.desenvolvedora}</span>
+                    <span className={style.publisher}>Publicado por: {game.publisher}</span>
+                    <span className={style.descricao}>
+                        {game.descricao}
+                    </span>
+                    <span className={style.genero}>Gênero: {game.genero?.genero}</span>
+                    <span className={style.status}>Status: {game.status?.status}</span>
+                    <div className={style.container_buttons}>
+                        <Button 
+                            label='EDITAR'
+                            router='/updateGame/'
+                            id_jogo={game.id_jogo}
+                        />
+                        <Button 
+                            label='EXCLUIR'
+                            router='/deleteGame/'
+                            id_jogo={game.id_jogo}
+                        />
+                    </div>
                 </div>
-
-            </div>
-
-        </div>
-    )
+                <div className={style.container_cover}>
+                    <img className={style.game_cover} src={hollow} alt="Capa do Game"/>
+                </div>
+            </>
+        )}
+    </div>
+);
 
 }
 
