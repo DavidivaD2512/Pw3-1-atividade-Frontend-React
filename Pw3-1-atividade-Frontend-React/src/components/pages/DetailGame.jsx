@@ -46,11 +46,13 @@ const DetailGame = () => {
                             label='EDITAR'
                             router='/updateGame/'
                             id_jogo={game.id_jogo}
+                            className={style.btn}
                         />
                         <Button 
                             label='EXCLUIR'
                             router='/deleteGame/'
                             id_jogo={game.id_jogo}
+                            className={style.btn}
                         />
                     </div>
                 </div>

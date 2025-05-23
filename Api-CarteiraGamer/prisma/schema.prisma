@@ -53,7 +53,7 @@ model Jogo {
   nome String
   desenvolvedora String
   publisher String
-  descricao String
+  descricao String @db.VarChar(500)
 
   genero Genero @relation(fields: [id_genero], references: [id_genero])
   status Status @relation(fields: [id_status], references: [id_status])

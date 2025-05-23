@@ -1,10 +1,17 @@
 .create_game_container{
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 4em;
+}
+
+.container_form{
+    display: flex;
+    background-color: #0a182b7e;
+    padding: 1.7em;
+    justify-content: center;
+    border-radius: 20px;
 }
 
 .create_game_container h1 {

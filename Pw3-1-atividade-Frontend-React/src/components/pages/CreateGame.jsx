@@ -28,7 +28,9 @@ const CreateGame = ()=>{
 
     async function submit(event) {
         event.preventDefault();
-        await api.post('/games/newGame', {
+
+        try {
+            await api.post('/games/newGame', {
             nome: game.nome,
             desenvolvedora: game.desenvolvedora,
             publisher: game.publisher,
@@ -36,6 +38,11 @@ const CreateGame = ()=>{
             genero: game.genero,
             status: game.status
         });
+
+        alert
+        } catch {
+
+        }
     }
     
     return(
@@ -44,63 +51,65 @@ const CreateGame = ()=>{
 
             <h1>CADASTRO DE JOGO</h1>
 
-            <form onSubmit={submit}>
+            <div className={Style.container_form}>
+                <form onSubmit={submit}>
 
-                <Input
-                    text='Nome do jogo'
-                    type='text'
-                    name='nome'
-                    id='nome'
-                    placeholder='Digite o nome do jogo'
-                    handlerChange={handlerChangeGame}
-                />
+                    <Input
+                        text='Nome do jogo'
+                        type='text'
+                        name='nome'
+                        id='nome'
+                        placeholder='Digite o nome do jogo'
+                        handlerChange={handlerChangeGame}
+                    />
 
-                <Input
-                    text='Desenvolvedora'
-                    type='text'
-                    name='desenvolvedora'
-                    id='desenvolvedora'
-                    placeholder='Digite o nome da desenvolvedora do jogo'
-                    handlerChange={handlerChangeGame}
-                />
+                    <Input
+                        text='Desenvolvedora'
+                        type='text'
+                        name='desenvolvedora'
+                        id='desenvolvedora'
+                        placeholder='Digite o nome da desenvolvedora do jogo'
+                        handlerChange={handlerChangeGame}
+                    />
 
-                <Input
-                    text='Publisher'
-                    type='text'
-                    name='publisher'
-                    id='publisher'
-                    placeholder='Digite o nome da publisher do jogo'
-                    handlerChange={handlerChangeGame}
-                />
+                    <Input
+                        text='Publisher'
+                        type='text'
+                        name='publisher'
+                        id='publisher'
+                        placeholder='Digite o nome da publisher do jogo'
+                        handlerChange={handlerChangeGame}
+                    />
 
-                <Input
-                    text='Descrição do jogo'
-                    type='text'
-                    name='descricao'
-                    id='descricao'
-                    placeholder='Digite a descrição do jogo'
-                    handlerChange={handlerChangeGame}
-                />
+                    <Input
+                        text='Descrição do jogo'
+                        type='text'
+                        name='descricao'
+                        id='descricao'
+                        placeholder='Digite a descrição do jogo'
+                        handlerChange={handlerChangeGame}
+                    />
 
-                <SelectGenre 
-                    name='genero'
-                    id='genero'
-                    text='Gênero do jogo'
-                    handlerChange={handlerChangeGenre}
-                />
+                    <SelectGenre 
+                        name='genero'
+                        id='genero'
+                        text='Gênero do jogo'
+                        handlerChange={handlerChangeGenre}
+                    />
 
-                <SelectStatus 
-                    name='status'
-                    id='status'
-                    text='Selecione um status'
-                    handlerChange={handlerChangeStatus}
-                />
+                    <SelectStatus 
+                        name='status'
+                        id='status'
+                        text='Selecione um status'
+                        handlerChange={handlerChangeStatus}
+                    />
 
-                <Button
-                    label='CADASTRAR JOGO'
-                />
+                    <Button
+                        label='CADASTRAR JOGO'
+                    />
 
-            </form>
+                </form>
+            </div>
 
         </section>
 

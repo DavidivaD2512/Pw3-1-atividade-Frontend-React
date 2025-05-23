@@ -36,66 +36,67 @@ const Register = ()=>{
 
             <h1>CADASTRO DE USUÁRIO</h1>
 
-            <form onSubmit={submit}>
+            <div className={Style.container_form}>
+                <form onSubmit={submit}>
 
-                <Input
-                    text='Nome'
-                    type='text'
-                    name='nome'
-                    id='nome'
-                    placeholder='Nome'
-                    handlerChange={handlerChangeInfo}
-                />
+                    <Input
+                        text='Nome'
+                        type='text'
+                        name='nome'
+                        id='nome'
+                        placeholder='Nome'
+                        handlerChange={handlerChangeInfo}
+                    />
 
-                <Input
-                    text='Email'
-                    type='text'
-                    name='email'
-                    id='email'
-                    placeholder='endereço@email.com'
-                    handlerChange={handlerChangeInfo}
+                    <Input
+                        text='Email'
+                        type='text'
+                        name='email'
+                        id='email'
+                        placeholder='endereço@email.com'
+                        handlerChange={handlerChangeInfo}
 
-                />
+                    />
 
-                <Input
-                    text='Senha'
-                    type='password'
-                    name='senha'
-                    id='senha'
-                    placeholder='Senha@123'
-                    handlerChange={handlerChangeInfo}
-                />
+                    <Input
+                        text='Senha'
+                        type='password'
+                        name='senha'
+                        id='senha'
+                        placeholder='Senha@123'
+                        handlerChange={handlerChangeInfo}
+                    />
 
-{/*                 <Input
-                    text='Confirmar Senha'
-                    type='password'
-                    name='senha2'
-                    id='senha2'
-                    handlerChange={handlerChangeInfo}
-                /> */}
+    {/*                 <Input
+                        text='Confirmar Senha'
+                        type='password'
+                        name='senha2'
+                        id='senha2'
+                        handlerChange={handlerChangeInfo}
+                    /> */}
 
-                <SelectSex 
-                    name='sexo'
-                    id='sexo'
-                    text='sexo'
-                    handlerChange={handlerChangeSex}
-                />
+                    <SelectSex 
+                        name='sexo'
+                        id='sexo'
+                        text='sexo'
+                        handlerChange={handlerChangeSex}
+                    />
 
-                <Input
-                    text='Data de nasimento'
-                    type='date'
-                    name='data_nasc'
-                    id='data_nasc'
-                    placeholder='xx/xx/xxxx'
-                    handlerChange={handlerChangeInfo}
-                />
+                    <Input
+                        text='Data de nasimento'
+                        type='date'
+                        name='data_nasc'
+                        id='data_nasc'
+                        placeholder='xx/xx/xxxx'
+                        handlerChange={handlerChangeInfo}
+                    />
 
-                <Button
-                    label='CADASTRAR USUÁRIO'
-                />
+                    <Button
+                        label='CADASTRAR USUÁRIO'
+                    />
 
-            </form>
-
+                </form>
+            </div>
         </section>
 
     )
