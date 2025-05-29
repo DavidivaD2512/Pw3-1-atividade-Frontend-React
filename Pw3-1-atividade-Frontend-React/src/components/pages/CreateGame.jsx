@@ -39,9 +39,9 @@ const CreateGame = ()=>{
             status: game.status
         });
 
-        alert
         } catch {
-
+            console.error('Erro ao criar jogo:', error);
+            alert(`Erro ao criar jogo: ${error.response?.data?.message || error.message}`);
         }
     }
     
@@ -106,6 +106,7 @@ const CreateGame = ()=>{
 
                     <Button
                         label='CADASTRAR JOGO'
+                        router='/games/viewGames'
                     />
 
                 </form>

@@ -50,7 +50,37 @@ route.get("/Detalhes/:id_jogo", async (req, res) => {
             errorObject: error.message
         });
     }
-})
+});
+
+route.put("/Detalhes/:id_jogo", async (req, res) => {
+    const { id_jogo } = req.params;
+    const { id_genero, id_status, nome, desenvolvedora, publisher, descricao } = req.body;
+
+    try {
+        await prisma.jogo.update({
+            where: { id_jogo: Number(id_jogo) },
+            data: {
+                id_genero,
+                id_status,
+                nome,
+                desenvolvedora,
+                publisher,
+                descricao,
+            }
+        });
+
+        return res.status(201).json({
+            errorStatus: false,
+            mensagemStatus: 'JOGO ATUALIZADO COM SUCESSO'
+        });
+    } catch (error) {
+        return res.status(400).json({
+            errorStatus: true,
+            mensagemStatus: 'HOUVE UM ERRO AO ATUALIZAR O JOGO',
+            errorObject: error.message
+        });
+    }
+});
 
 route.post("/newGame", async (req, res) => {
     try {
