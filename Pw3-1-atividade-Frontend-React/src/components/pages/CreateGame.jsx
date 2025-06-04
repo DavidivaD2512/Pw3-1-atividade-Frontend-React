@@ -39,7 +39,7 @@ const CreateGame = ()=>{
             status: game.status
         });
 
-        } catch {
+        } catch (error) {
             console.error('Erro ao criar jogo:', error);
             alert(`Erro ao criar jogo: ${error.response?.data?.message || error.message}`);
         }

@@ -112,4 +112,25 @@ route.post("/newGame", async (req, res) => {
     }
 });
 
+route.delete("/deleteGame/:id_jogo", async (req, res) => {
+    const { id_jogo } = req.params; 
+    try {
+        await prisma.jogo.delete({
+            where: { id_jogo: Number(id_jogo) }
+        });
+        return res.status(200).json({
+            errorStatus: false,
+            mensagemStatus: 'JOGO DELETADO COM SUCESSO'
+        });
+    } catch (error) {
+        console.error("Erro ao deletar jogo:", error);
+        return res.status(400).json({
+            errorStatus: true,
+            mensagemStatus: 'HOUVE UM ERRO AO DELETAR O JOGO',
+            errorObject: error.message
+        });
+    }
+});
+
+
 export default route;

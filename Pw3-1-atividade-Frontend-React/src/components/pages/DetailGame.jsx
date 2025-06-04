@@ -95,10 +95,11 @@ const DetailGame = () => {
                         />
                         <Button 
                             label='EXCLUIR'
-                            router='/deleteGame/'
+                            router='/Games/deleteGame/'
                             id_jogo={game.id_jogo}
                             className={style.btn}
                         />
+
                     </div>
                 </div>
                 <div className={style.container_cover}>

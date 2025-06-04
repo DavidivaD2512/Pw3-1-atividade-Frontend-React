@@ -9,6 +9,7 @@ import CreateGame from './components/pages/CreateGame';
 import ViewGames from './components/pages/ViewGames';
 import Register from './components/pages/Register';
 import Detail from './components/pages/DetailGame';
+import Delete from './components/pages/DeleteGame';
 
 import NavBar from './components/layout/NavBar';
 
@@ -32,6 +33,7 @@ function App() {
                 <Route path='/Games/ViewGames' element={<ViewGames />} />
                 <Route path='/User/Register' element={<Register />} />
                 <Route path='/Games/Detalhes/:id_jogo' element={<Detail />} />
+                <Route path='/Games/deleteGame/:id_jogo' element={<Delete />} />
 
               </Route>
 
